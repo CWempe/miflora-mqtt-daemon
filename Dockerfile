@@ -1,10 +1,10 @@
-FROM python:3-stretch
+FROM python:3-alpine
 MAINTAINER Lars von Wedel <vonwedel@me.com>
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y bluez
+RUN apk update && apk add bluez bluez-deprecated
 
 COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
